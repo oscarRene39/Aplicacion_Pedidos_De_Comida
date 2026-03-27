@@ -15,5 +15,12 @@ public class Pedido {
        return productos.stream().mapToDouble(Producto::getPrecio).sum();
     }
     
-
+    public Cliente getCliente() {
+        return cliente;
+    }
+    
+    public List<Producto> getProductos() {
+        return productos;
+    }
+    
 }
