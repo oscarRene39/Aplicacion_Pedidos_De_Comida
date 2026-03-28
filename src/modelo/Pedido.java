@@ -1,30 +1,35 @@
 package modelo;
 
-
 import java.util.List;
 
 public class Pedido {
     private Cliente cliente;
-    private List<Producto> productos;// relacion de asociacion de un pedido con varios productos
-    public Pedido(Cliente cliente, List<Producto> productos) {
+    private Cajero cajero;
+    private List<Producto> productos;
+
+    public Pedido(Cliente cliente, Cajero cajero, List<Producto> productos) {
         this.cliente = cliente;
+        this.cajero = cajero;
         this.productos = productos;
     }
 
     public Double calcularTotal() {
-        Double total = 0.0;
+        double total = 0.0;
         for (Producto producto : productos) {
-            total += producto.getPrecio();
+            total += producto.getPrecio() * producto.getCantidad();
         }
         return total;
     }
-    
+
     public Cliente getCliente() {
         return cliente;
     }
-    
+
+    public Cajero getCajero() {
+        return cajero;
+    }
+
     public List<Producto> getProductos() {
         return productos;
     }
-    
 }

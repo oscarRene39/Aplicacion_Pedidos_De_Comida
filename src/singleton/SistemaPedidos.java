@@ -1,8 +1,8 @@
 package singleton;
 
-import modelo.Pedido;
 import java.util.ArrayList;
 import java.util.List;
+import modelo.Pedido;
 
 public class SistemaPedidos {
     private static SistemaPedidos instancia;
@@ -38,10 +38,11 @@ public class SistemaPedidos {
             Pedido pedido = pedidos.get(i);
             System.out.println("\n--- PEDIDO #" + (i + 1) + " ---");
             System.out.println("Cliente: " + pedido.getCliente().getNombre());
-            System.out.println("Email: " + pedido.getCliente().getEmail());
+            System.out.println("Turno cliente: " + pedido.getCliente().getTurnoPedido());
+            System.out.println("Cajero: " + pedido.getCajero().getNombre() + " (" + pedido.getCajero().getIdCajero() + ")");
             System.out.println("Productos:");
             pedido.getProductos().forEach(producto -> 
-                System.out.println("  - " + producto.getNombre() + ": $" + producto.getPrecio())
+                System.out.println("  - " + producto.getNombre() + " x" + producto.getCantidad() + ": $" + producto.getPrecio())
             );
             System.out.println("Total del pedido: $" + pedido.calcularTotal());
         }
