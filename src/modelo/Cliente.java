@@ -4,19 +4,19 @@ package modelo;
 
 public class Cliente extends Usuario {
     
-    private int idCliente;
+    private int TurnoPedido;
 
-    public Cliente(String nombre, String email, int idCliente) {
-        super(nombre, email);
-        this.idCliente = idCliente;
+    public Cliente(String nombre,  int TurnoPedido) {
+        super(nombre);
+        this.TurnoPedido = TurnoPedido;
     }
 
-    public int getIdCliente() {
-        return idCliente;
+    public int getTurnoPedido() {
+        return TurnoPedido;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setTurnoPedido(int TurnoPedido) {
+        this.TurnoPedido = TurnoPedido;
     }
     
 }

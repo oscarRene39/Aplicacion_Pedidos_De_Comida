@@ -1,10 +1,5 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import modelo.Cajero;
-import modelo.Cliente;
 import modelo.Pedido;
-import modelo.Producto;
 import singleton.SistemaPedidos;
 
 public class App {
@@ -27,7 +22,13 @@ public class App {
 
                 switch (opcion) {
                     case 1:
-                        
+                        try {
+                            Pedido pedido1 = Pedido.ingresarPedido(scanner);
+                            sistemaPedidos.agregarPedido(pedido1);
+                            System.out.println("Pedido creado y guardado correctamente.");
+                        } catch (IllegalArgumentException e) {
+                            System.out.println("Error al crear pedido: " + e.getMessage());
+                        }
                         break;
                     case 2:
                         sistemaPedidos.mostrarTodosLosPedidos();
@@ -44,6 +45,5 @@ public class App {
         } finally {
             scanner.close();
         }
-    }
     }
 }
