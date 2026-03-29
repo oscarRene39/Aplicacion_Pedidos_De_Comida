@@ -108,12 +108,31 @@ public class Pedido {
     }
 
     private static Producto leerProducto(Scanner scanner) {
-        System.out.print("Nombre del producto: ");
-        String nombre = scanner.nextLine();
+        String nombre;
+        while (true) {
+            try {
+                System.out.print("Nombre del producto: ");
+                nombre = scanner.nextLine().trim();
+
+                if (nombre.isEmpty()) {
+                    throw new IllegalArgumentException("El nombre del producto no puede estar vacio.");
+                }
+
+                if (nombre.matches(".*\\d.*")) {
+                    throw new IllegalArgumentException("El nombre del producto no puede contener numeros.");
+                }
+
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
 
         System.out.print("Precio del producto: ");
         double precio = scanner.nextDouble();
-
+        if (precio <= 0) {
+            throw new IllegalArgumentException("El precio debe ser mayor que 0.");
+        }
         System.out.print("Cantidad del producto: ");
         int cantidad = scanner.nextInt();
         scanner.nextLine();
