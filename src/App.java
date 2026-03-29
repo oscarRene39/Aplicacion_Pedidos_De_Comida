@@ -7,6 +7,7 @@ import modelo.Pedido;
 import modelo.Producto;
 import singleton.SistemaPedidos;
 
+// Clase principal de la aplicación - punto de entrada del sistema de pedidos
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -49,6 +50,7 @@ public class App {
         }
     }
     
+    // Método para crear un nuevo pedido con cliente y productos
     private static void crearNuevoPedido(Scanner scanner, SistemaPedidos sistemaPedidos) {
         try {
             // Ingresar datos del cliente
@@ -84,6 +86,7 @@ public class App {
                 productos.add(bebida);
                 System.out.println("Bebida agregada: " + bebida.getNombre() + " - $" + bebida.getPrecio());
             }
+            
             
             System.out.println("\n=== COMIDAS ===");
             System.out.print("¿Desea agregar una comida? (s/n): ");
@@ -159,4 +162,4 @@ public class App {
             System.out.println("Error: " + e.getMessage());
         }
     }
-}
+} 
