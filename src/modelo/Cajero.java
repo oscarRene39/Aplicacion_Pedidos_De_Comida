@@ -1,5 +1,5 @@
 package modelo;
-
+// subclase Cajero que hereda de Usuario
 public class Cajero extends Usuario {
     private String idCajero;
 

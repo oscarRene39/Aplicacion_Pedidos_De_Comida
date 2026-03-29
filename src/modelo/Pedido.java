@@ -1,5 +1,5 @@
 package modelo;
-
+//
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -37,8 +37,26 @@ public class Pedido {
 
     public static Pedido ingresarPedido(Scanner scanner) {
         System.out.println("\n=== DATOS DEL CLIENTE ===");
-        System.out.print("Nombre del cliente: ");
-        String nombreCliente = scanner.nextLine();
+        String nombreCliente;
+        while (true) {
+            try {
+                System.out.print("Nombre del cliente: ");
+                nombreCliente = scanner.nextLine().trim();
+
+                if (nombreCliente.isEmpty()) {
+                    throw new IllegalArgumentException("El nombre del cliente no puede estar vacio.");
+                }
+
+                if (nombreCliente.matches(".*\\d.*")) {
+                    throw new IllegalArgumentException("El nombre del cliente no puede contener numeros.");
+                }
+
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
+
         System.out.print("Turno del cliente: ");
         int turnoCliente = scanner.nextInt();
         scanner.nextLine();
@@ -46,8 +64,26 @@ public class Pedido {
         Cliente clienteT = new Cliente(nombreCliente, turnoCliente);
 
         System.out.println("\n=== DATOS DEL CAJERO ===");
-        System.out.print("Nombre del cajero: ");
-        String nombreCajero = scanner.nextLine();
+        String nombreCajero;
+        while (true) {
+            try {
+                System.out.print("Nombre del cajero: ");
+                nombreCajero = scanner.nextLine().trim();
+
+                if (nombreCajero.isEmpty()) {
+                    throw new IllegalArgumentException("El nombre del cajero no puede estar vacio.");
+                }
+
+                if (nombreCajero.matches(".*\\d.*")) {
+                    throw new IllegalArgumentException("El nombre del cajero no puede contener numeros.");
+                }
+
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+        }
+
         System.out.print("ID del cajero: ");
         String idCajero = scanner.nextLine();
 
@@ -68,7 +104,7 @@ public class Pedido {
             productos.add(leerProducto(scanner));
         }
 
-        return new Pedido(cliente, cajero, productos);
+        return new Pedido(clienteT, cajero, productos);
     }
 
     private static Producto leerProducto(Scanner scanner) {

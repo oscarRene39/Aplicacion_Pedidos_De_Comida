@@ -1,6 +1,6 @@
 package modelo;
 
-// subclase Cliente
+// subclase Cliente que hereda de Usuario
 
 public class Cliente extends Usuario {
     

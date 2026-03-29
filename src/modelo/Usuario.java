@@ -1,7 +1,7 @@
 package modelo;
 
-// Clase base Usuario
-public class Usuario {
+// Clase abstracta Usuario
+public abstract class Usuario {
     protected  String nombre;
      public Usuario(String nombre) {
         this.nombre = nombre;
