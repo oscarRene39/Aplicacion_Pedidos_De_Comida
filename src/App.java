@@ -23,8 +23,9 @@ public class App {
                 switch (opcion) {
                     case 1:
                         try {
+                            
                             Pedido pedido1 = Pedido.ingresarPedido(scanner);
-                            sistemaPedidos.agregarPedido(pedido1);
+                            SistemaPedidos.getInstancia().agregarPedido(pedido1);
                             System.out.println("Pedido creado y guardado correctamente.");
                         } catch (IllegalArgumentException e) {
                             System.out.println("Error al crear pedido: " + e.getMessage());

@@ -5,7 +5,7 @@ import java.util.List;
 import modelo.Pedido;
 
 public class SistemaPedidos {
-    private static SistemaPedidos instancia;
+    private static SistemaPedidos instancia;// se genera patron singleton
     private List<Pedido> pedidos;
     
     private SistemaPedidos(){
